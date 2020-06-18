@@ -1,0 +1,12 @@
+<template>hi
+    <div class="menu-header">
+        <span class="menu-title">yes</span>
+    </div>
+
+    <div class="app">
+        <template if:true={view}>
+            <play-view lwc:dynamic={view.component} props={view.props} class="container"></play-view>
+            <play-view lwc:dynamic={view.component} props={view.props} class="container"></play-view>
+        </template>
+    </div>
+</template>
