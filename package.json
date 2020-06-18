@@ -68,6 +68,7 @@
         "test:unit:watch": "lwc-services test:unit --watch",
         "watch": "run-p watch:client watch:server",
         "watch:client": "lwc-services watch -b webpack",
-        "watch:server": "nodemon"
+        "watch:server": "nodemon",
+        "start": "run-p serve:client serve:api"
     }
 }
