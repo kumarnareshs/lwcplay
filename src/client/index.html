@@ -1,85 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Standard meta -->
-        <meta charset="UTF-8" />
-        <title>rcast</title>
-        <meta
-            name="description"
-            content="Listen and manage your podcast in a lightweight application"
-        />
+  <head>
+    <!-- Standard meta -->
+    <meta charset="UTF-8" />
+    <title>rcast</title>
+    <meta
+      name="description"
+      content="Listen and manage your podcast in a lightweight application"
+    />
 
-        <!-- Add manifest for add to home screen -->
+    <!-- Add manifest for add to home screen -->
 
-        <!-- Block zoom -->
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1"
-        />
+    <!-- Block zoom -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
 
-        <!-- Branding -->
-        <meta name="theme-color" content="#06a9dd" />
+    <!-- Branding -->
+    <meta name="theme-color" content="#06a9dd" />
 
-        <link rel="shortcut icon" href="./resources/favicon.ico" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.2.0/codemirror.min.css"
-        />
+    <link rel="shortcut icon" href="./resources/favicon.ico" />
 
-        <!-- MODULES_PRELOAD -->
+    <!-- MODULES_PRELOAD -->
 
-        <style>
-            :root {
-                --primary-color: #06a9dd;
+    <style>
+      :root {
+        --primary-color: #06a9dd;
 
-                --spacing-small: 10px;
-                --spacing-medium: 16px;
+        --spacing-small: 10px;
+        --spacing-medium: 16px;
 
-                --background-color: #fff;
-                --background-color-lighter: #323232;
-                --font-color: #14171a;
+        --background-color: #fff;
+        --background-color-lighter: #323232;
+        --font-color: #14171a;
 
-                --header-height: 56px;
-                --header-background: var(--primary-color);
-                --header-color: #fff;
+        --header-height: 56px;
+        --header-background: var(--primary-color);
+        --header-color: #fff;
 
-                --menu-width: 256px;
+        --menu-width: 256px;
 
-                --player-condensed-height: 64px;
-                --player-control-color: var(--primary-color);
+        --player-condensed-height: 64px;
+        --player-control-color: var(--primary-color);
 
-                --success-color: #66bb6a;
-            }
+        --success-color: #66bb6a;
+      }
 
-            body,
-            html {
-                height: 100%;
-                width: 100%;
-                padding: 0;
-                margin: 0;
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
 
-                /* Use system font */
-                font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                    Roboto, Helvetica, sans-serif;
+        /* Use system font */
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto,
+          Helvetica, sans-serif;
 
-                background: var(--background-color);
-                color: var(--font-color);
+        background: var(--background-color);
+        color: var(--font-color);
 
-                /* 
+        /* 
                   Disable element highlight on tap and other non-native behaviors
                   https://medium.com/appscope/designing-native-like-progressive-web-apps-for-ios-1b3cdda1d0e8
                 */
-                -webkit-user-select: none;
-                -webkit-tap-highlight-color: transparent;
-                -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
 
-                /* Prevent the elastic scrolling effect when trying to scroll past the page bottom. */
-                overflow: hidden;
-            }
-        </style>
-    </head>
+        /* Prevent the elastic scrolling effect when trying to scroll past the page bottom. */
+        overflow: hidden;
+      }
+    </style>
+  </head>
 
-    <body>
-        <div id="main"></div>
-    </body>
+  <body>
+    <div id="main"></div>
+  </body>
 </html>

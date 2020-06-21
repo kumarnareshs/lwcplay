@@ -1,17 +1,16 @@
 <template
-    >hi
-    <div class="menu-header">
-        <span class="menu-title"> App.html</span>
-    </div>
-
-    <div class="app">
-        s
-        <template if:true={view}>
-            <play-view
-                lwc:dynamic={view.component}
-                property={view.property}
-                class="container"
-            ></play-view>
-        </template>
-    </div>
+  >hi
+  <div class="menu-header">
+    <span class="menu-title"> App.html</span>
+  </div>
+  <button value="compiler" onclick={handleCompiler}></button>
+  <div class="app">
+    <template if:true={view}>
+      <play-view
+        lwc:dynamic={view.component}
+        property={view.property}
+        class="container"
+      ></play-view>
+    </template>
+  </div>
 </template>

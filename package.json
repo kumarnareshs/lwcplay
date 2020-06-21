@@ -7,6 +7,7 @@
     "dependencies": {
         "codemirror": "5.54.0",
         "compression": "^1.7.4",
+        "cors": "^2.8.5",
         "express": "^4.17.1",
         "helmet": "^3.23.1",
         "navigo": "^7.1.2"
@@ -27,7 +28,7 @@
     "homepage": "https://github.com/Naresh/play",
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            
         }
     },
     "keywords": [

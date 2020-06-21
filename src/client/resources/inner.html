@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-	<style type="text/css">
-		html,
-		body {
-			width: 100%;
-			height: 100%;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-		}
-	</style>
-</head>
-<body>
-<div id="container" style="width:100%;height:100%"></div>
-<script src="https://unpkg.com/monaco-editor@0.8.3/min/vs/loader.js"></script>
-<script>
- 
-    
-    require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@0.8.3/min/vs' }});
-window.MonacoEnvironment = { getWorkerUrl: () => proxy };
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <style type="text/css">
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container" style="width: 100%; height: 100%;"></div>
+    <script src="https://unpkg.com/monaco-editor@0.8.3/min/vs/loader.js"></script>
+    <script>
+      require.config({
+        paths: { vs: "https://unpkg.com/monaco-editor@0.8.3/min/vs" },
+      });
+      window.MonacoEnvironment = { getWorkerUrl: () => proxy };
 
-let proxy = URL.createObjectURL(new Blob([`
+      let proxy = URL.createObjectURL(
+        new Blob(
+          [
+            `
 	self.MonacoEnvironment = {
 		baseUrl: 'https://unpkg.com/monaco-editor@0.8.3/min/'
 	};
 	importScripts('https://unpkg.com/monaco-editor@0.8.3/min/vs/base/worker/workerMain.js');
-`], { type: 'text/javascript' }));
+`,
+          ],
+          { type: "text/javascript" }
+        )
+      );
 
-require(["vs/editor/editor.main"], function () {
-	let editor = monaco.editor.create(document.getElementById('container'), {
-		value: [
-			'function x() {',
-			'\tconsole.log("Hello world!");',
-			'}'
-		].join('\n'),
-		language: 'javascript',
-		theme: 'vs-light' 
-	});
-	
-	editor.addListener('didType', () => {
-		console.log(editor.getValue());
-	});
-  
-});
-</script>
-</body>
+      require(["vs/editor/editor.main"], function () {
+        let editor = monaco.editor.create(
+          document.getElementById("container"),
+          {
+            value: [
+              "function x() {",
+              '\tconsole.log("Hello world!");',
+              "}",
+            ].join("\n"),
+            language: "javascript",
+            theme: "vs-light",
+          }
+        );
+
+        editor.addListener("didType", () => {
+          console.log(editor.getValue());
+        });
+      });
+    </script>
+  </body>
 </html>
