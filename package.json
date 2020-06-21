@@ -1,17 +1,18 @@
 {
-    "name": "your-app-name",
+    "name": "play",
     "description": "My amazing LWC app",
     "version": "0.0.1",
     "author": "Naresh",
-    "bugs": "https://github.com/Naresh/your-app-name/issues",
+    "bugs": "https://github.com/Naresh/play/issues",
     "dependencies": {
+        "codemirror": "5.54.0",
         "compression": "^1.7.4",
         "express": "^4.17.1",
         "helmet": "^3.23.1",
         "navigo": "^7.1.2"
     },
     "devDependencies": {
-        "eslint": "^7.2.0",
+        "eslint": "^7.3.0",
         "husky": "^4.2.5",
         "lint-staged": "^10.2.11",
         "lwc-services": "^2.1.1",
@@ -23,7 +24,7 @@
         "npm": ">=6.4.1",
         "yarn": ">=1.9.4"
     },
-    "homepage": "https://github.com/Naresh/your-app-name",
+    "homepage": "https://github.com/Naresh/play",
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
@@ -43,19 +44,19 @@
     },
     "nodemonConfig": {
         "watch": [
-            "src/server/**/*.js"
+            "src/**/*.*"
         ],
         "ext": "js",
         "ignore": [
             "src/**/*.spec.js",
             "src/**/*.test.js"
         ],
-        "exec": "node ./src/server/api.js"
+        "exec": "yarn lwc-services build;node scripts/server.js; node ./src/server/api.js;"
     },
-    "repository": "Naresh/your-app-name",
+    "repository": "Naresh/play",
     "scripts": {
-        "build": "lwc-services build -m production -b webpack",
-        "build:development": "lwc-services build -b webpack",
+        "build": "lwc-services build -m production",
+        "build:development": "lwc-services build ",
         "lint": "eslint ./src/**/*.js",
         "prettier": "prettier --write \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
         "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
@@ -67,8 +68,9 @@
         "test:unit:debug": "lwc-services test:unit --debug",
         "test:unit:watch": "lwc-services test:unit --watch",
         "watch": "run-p watch:client watch:server",
-        "watch:client": "lwc-services watch -b webpack",
+        "watch:client": "lwc-services watch -m development",
         "watch:server": "nodemon",
-        "start": "run-p serve:client serve:api"
+        "runserver": "node ./src/server/api.js",
+        "start": "run-p watch:server runserver"
     }
 }

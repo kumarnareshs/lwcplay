@@ -1,12 +1,17 @@
-<template>hi
+<template
+    >hi
     <div class="menu-header">
-        <span class="menu-title">yes</span>
+        <span class="menu-title"> App.html</span>
     </div>
 
     <div class="app">
+        s
         <template if:true={view}>
-            <play-view lwc:dynamic={view.component} props={view.props} class="container"></play-view>
-            <play-view lwc:dynamic={view.component} props={view.props} class="container"></play-view>
+            <play-view
+                lwc:dynamic={view.component}
+                property={view.property}
+                class="container"
+            ></play-view>
         </template>
     </div>
 </template>
