@@ -1,0 +1,9 @@
+@import 'helper/slds';
+.header
+{
+    height: var(--menu-height);
+    background: var(--titleBar-activeBackground);   
+}
+.dev-icon{
+    background-image: url(/resources/images/logo.png);
+}

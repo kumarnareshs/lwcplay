@@ -21,7 +21,7 @@
     <meta name="theme-color" content="#06a9dd" />
 
     <link rel="shortcut icon" href="./resources/favicon.ico" />
-
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/@salesforce-ux/design-system@2.12.2/assets/styles/salesforce-lightning-design-system.css"></link>
     <!-- MODULES_PRELOAD -->
 
     <style>
@@ -47,6 +47,10 @@
         --success-color: #66bb6a;
       }
 
+      .slds-size_8-of-12,
+      .slds-size--8-of-12{
+        width:66.6666666667%;
+      }
       body,
       html {
         height: 100%;
@@ -71,11 +75,16 @@
 
         /* Prevent the elastic scrolling effect when trying to scroll past the page bottom. */
         overflow: hidden;
+
+        --menu-height:40px;
+        --titleBar-activeBackground: #3c3c3c;
       }
     </style>
+   
   </head>
 
   <body>
+    <div class="slds-grid"></div>
     <div id="main"></div>
   </body>
 </html>

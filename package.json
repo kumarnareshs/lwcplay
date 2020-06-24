@@ -10,6 +10,7 @@
         "cors": "^2.8.5",
         "express": "^4.17.1",
         "helmet": "^3.23.1",
+        "jshint": "^2.11.1",
         "navigo": "^7.1.2"
     },
     "devDependencies": {
@@ -27,9 +28,7 @@
     },
     "homepage": "https://github.com/Naresh/play",
     "husky": {
-        "hooks": {
-            
-        }
+        "hooks": {}
     },
     "keywords": [
         "lwc"

@@ -1,10 +1,6 @@
-<template
-  >hi
-  <div class="menu-header">
-    <span class="menu-title"> App.html</span>
-  </div>
-  <button value="compiler" onclick={handleCompiler}></button>
+<template>
   <div class="app">
+    <div class="slds-grid"></div>
     <template if:true={view}>
       <play-view
         lwc:dynamic={view.component}
