@@ -7,7 +7,6 @@ export default class Header extends LightningElement {
     rendered = false;
     async renderedCallback() {
         if (!this.rendered) {
-
             this.rendered = true;
         }
     }

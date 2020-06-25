@@ -11,7 +11,16 @@
         "express": "^4.17.1",
         "helmet": "^3.23.1",
         "jshint": "^2.11.1",
-        "navigo": "^7.1.2"
+        "navigo": "^7.1.2",
+        "passport-github": "^1.1.0",
+        "body-parser": "^1.13.2",
+        "connect-ensure-login": "^0.1.1",
+        "cookie-parser": "^1.3.5",
+        "dotenv": "^6.2.0",
+        "ejs": "^2.3.3",
+        "express-session": "^1.11.3",
+        "morgan": "^1.6.1",
+        "passport": "^0.4.0"
     },
     "devDependencies": {
         "eslint": "^7.3.0",
@@ -19,7 +28,8 @@
         "lint-staged": "^10.2.11",
         "lwc-services": "^2.1.1",
         "npm-run-all": "^4.1.5",
-        "prettier": "^2.0.5"
+        "prettier": "^2.0.5",
+        "serve": "^11.3.0"
     },
     "engines": {
         "node": ">=10.13.0",
@@ -71,6 +81,7 @@
         "watch:client": "lwc-services watch -m development",
         "watch:server": "nodemon",
         "runserver": "node ./src/server/api.js",
-        "start": "run-p watch:server runserver"
+        "start": "run-p watch:server runserver",
+        "on": "serve --single --config ../scripts/serve.config.json dist/"
     }
 }

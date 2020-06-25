@@ -6,29 +6,45 @@ export default class App extends LightningElement {
   view;
   constructor() {
     super();
-
+    console.log('App is creating')
     this.router.on({
       "/dp": async () => {
         const ViewPodcasts = await import("view/playground");
-        console.log("ViewPodcasts" + ViewPodcasts);
+        this.setView(ViewPodcasts.default, { pass: "value" });
+      },
+      "/pagenotfound": async () => {
+        const ViewPodcasts = await import("view/playground");
         this.setView(ViewPodcasts.default, { pass: "value" });
       },
       "/compiler": async () => {
         const ViewPodcasts = await import("view/compiler");
-        console.log("ViewPodcasts" + ViewPodcasts);
+
         this.setView(ViewPodcasts.default, { pass: "value" });
-      }, "/header": async () => {
+      },
+      "/header": async () => {
         const ViewPodcasts = await import("components/header");
-        console.log("ViewPodcasts" + ViewPodcasts);
+
         this.setView(ViewPodcasts.default, { pass: "value" });
-      }
+      },
+      "/login": async () => {
+        const ViewPodcasts = await import("components/login");
+
+        this.setView(ViewPodcasts.default, { pass: "value" });
+      },
+      "/authcallback": async ({id}) => {
+        const ViewPodcasts = await import("components/login");
+        console.log(id);
+        this.setView(ViewPodcasts.default, { pass: "value" });
+      } 
     });
 
     const navigateToDefault = () => {
       this.router.navigate("/compiler");
     };
-
-    this.router.notFound(navigateToDefault);
+    const pagenotfound = () => {
+      this.router.navigate("/pagenotfound");
+    };
+    this.router.notFound(pagenotfound);
     this.router.on(navigateToDefault);
 
     this.router.resolve();

@@ -6,4 +6,11 @@
 }
 .dev-icon{
     background-image: url(/resources/images/logo.png);
+    display: block;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.icon{
+    height: 100%;
 }
