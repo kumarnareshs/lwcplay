@@ -31,10 +31,8 @@ export default class App extends LightningElement {
 
         this.setView(ViewPodcasts.default, { pass: "value" });
       },
-      "/authcallback": async ({id}) => {
-        const ViewPodcasts = await import("components/login");
-        console.log(id);
-        this.setView(ViewPodcasts.default, { pass: "value" });
+      "/authcallback": async () => {
+      
       } 
     });
 

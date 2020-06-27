@@ -4,7 +4,7 @@ module.exports = {
   resources: [{ from: "src/client/resources/", to: "dist/resources/" }],
 
   sourceDir: "./src/client",
-
+  mode: 'development',
   devServer: {
     port: 3007,
     host: "localhost",
@@ -12,5 +12,7 @@ module.exports = {
     stats: "errors-only",
     noInfo: true,
     contentBase: "./src/client",
-  },
+  }, lwcCompilerStylesheetConfig: {
+    customProperties: { allowDefinition: true }
+  }
 };
