@@ -1,5 +1,6 @@
 import { LightningElement, api } from 'lwc';
 import { toQuery } from '../../helper/slds/util';
+import * as CONSTANTS from '../../helper/constant/constant';
 import PopupWindow from './PopupWindow'
 export default class Login extends LightningElement {
     @api property;
@@ -34,7 +35,7 @@ export default class Login extends LightningElement {
             return this.onFailure(new Error('\'code\' not found'));
         }
         this.popup.close();
-        this.code = data.code;
+        this.handleGetToken(data.code);
     }
 
 
@@ -42,32 +43,24 @@ export default class Login extends LightningElement {
         this.popup.close();
         this.props.onFailure(error);
     }
-    handleGetToken(evt) {
-        // POST request using fetch with error handling
-        const { client_id, client_secret, scope, redirect_uri } = this.props;
-        const search = toQuery({
-            client_id: client_id,
-            client_secret: client_secret,
-            // scope,
-            //   redirect_uri: redirect_uri,
-            code: this.code,
+    handleGetToken(code) {
+     
 
-        });
+        let url = CONSTANTS.BASE_URL + '/auth/login?code=' + code;
+        fetch(url,{credentials: 'include'})
+            .then(response => { console.log(response); response.json() })
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
 
-
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                
-                'Access-Control-Allow-Origin': 'http://localhost:3000',
-                'Access-Control-Allow-Credentials': 'true'
-            },
-            mode: 'no-cors'
-        };
-        let url = `https://github.com/login/oauth/access_token?${search}`;
-
-        fetch(url, requestOptions)
-            .then(response => { console.log(response);response.json()})
+    handleUsername(){
+        let url = CONSTANTS.BASE_URL + '/user/profile';
+        fetch(url,{credentials: 'include'})
+            .then(response => { console.log(response); response.json() })
             .then(data => {
                 console.log('Success:', data);
             })

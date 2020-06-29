@@ -62,7 +62,7 @@
             "src/**/*.spec.js",
             "src/**/*.test.js"
         ],
-        "exec": "yarn lwc-services build;node scripts/server.js; node ./src/server/api.js;"
+        "exec": "yarn lwc-services build;node scripts/server.js; "
     },
     "repository": "Naresh/play",
     "scripts": {
@@ -82,7 +82,7 @@
         "watch:client": "lwc-services watch -m development",
         "watch:server": "nodemon",
         "runserver": "node ./src/server/api.js",
-        "start": "run-p watch:server runserver",
-        "on": "serve --single --config ../scripts/serve.config.json dist/"
+        "start": "watch:server",
+        "on": "nodemon"
     }
 }
