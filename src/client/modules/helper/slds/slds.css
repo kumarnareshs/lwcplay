@@ -258,7 +258,7 @@ td,
 th{
   padding:0;
 }
-
+/* 
 *,
 *:before,
 *:after{
@@ -435,7 +435,7 @@ video{
 img{
   max-width:100%;
   height:auto;
-}
+} */
 
 .slds-modal_form .slds-modal__header,
 .slds-modal_form .slds-modal__content:last-child,

@@ -30,6 +30,11 @@ export default class App extends LightningElement {
         const ViewPodcasts = await import("components/login");
 
         this.setView(ViewPodcasts.default, { pass: "value" });
+      }, 
+      "/main": async () => {
+        const ViewPodcasts = await import("components/main");
+
+        this.setView(ViewPodcasts.default, { pass: "value" });
       },
       "/authcallback": async () => {
       
@@ -37,7 +42,7 @@ export default class App extends LightningElement {
     });
 
     const navigateToDefault = () => {
-      this.router.navigate("/compiler");
+      this.router.navigate("/main");
     };
     const pagenotfound = () => {
       this.router.navigate("/pagenotfound");
