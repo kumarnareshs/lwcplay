@@ -15,6 +15,23 @@
 
 }
 
+button{
+    outline:none;
+    border:none;
+}
+.action{
+    background-image: none;
+    height: 50px;
+    width: 50px;
+    background-size: 50px;
+    --size: 50px;
+    color:var(--activityBar-foreground,var(--debug));
+    border:none;
+    opacity: .6;
+}
+.action:hover{
+    opacity: 1;
+}
 .last{
     margin-top: auto;
 }

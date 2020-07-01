@@ -32,5 +32,8 @@ export { default as tools } from './templates/tools.html';
 export { default as video } from './templates/video.html';
 export { default as save } from './templates/save.html';
 export { default as files } from './templates/files.html';
+export { default as fileArrowDown } from './templates/file-arrow-down.html';
+export { default as fileArrowRight } from './templates/file-arrow-right.html';
+export { default as codebracket } from './templates/codebracket.html';
 
 export { default as void } from './templates/void.html';

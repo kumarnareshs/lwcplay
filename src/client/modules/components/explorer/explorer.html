@@ -1,1 +1,71 @@
-<template></template>
+<template>
+  <aside class="explorer-container">
+    <div class="sidebar-main">
+      <section class="sidebar-pane">
+        <div class="sidebar-pane-title"></div>
+        <div class="sidebar-pane-content">
+          <section class="sidebar-section">
+            <header class="tree-item-header">
+              <button class="arrow-icon">
+                <base-icon name="fileArrowRight"></base-icon>
+              </button>
+              <h4 class="tree-item-title">Info</h4>
+            </header>
+            <div class="tree-item-content">
+              <div style="padding: 10px 0px;">
+                <div style="padding: 0px 10px; margin: 3px 0px 5px;"></div>
+              </div>
+            </div>
+          </section>
+          <section class="sidebar-section">
+            <header class="tree-item-header">
+              <button class="arrow-icon">
+                <base-icon name="fileArrowRight"></base-icon>
+              </button>
+              <h4 class="tree-item-title">Files</h4>
+            </header>
+            <div class="tree-item-content">
+              <div style="padding: 10px 0px;">
+                <div class="file_tree">
+                    <input type="checkbox" id="f_myfilms">
+                    <label for="f_myfilms">My Films</label>
+                    <div class="dir_wrapper">
+                      <input type="checkbox" id="f_wehave">
+                      <label for="f_wehave">We Have</label>
+                      <div class="dir_wrapper">
+                        <input type="checkbox" id="f_togo">
+                        <label for="f_togo">To Go</label>
+                        <div class="dir_wrapper">
+                          <input type="radio" name="hosted_files" id="f_deeper_js" value="Deeper.js">
+                          <label for="f_deeper_js">Deeper.js</label>
+                          <input type="radio" name="hosted_files" id="f_fileception_js" value="Fileception.js">
+                          <label for="f_fileception_js">Fileception.js</label>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <input type="checkbox" id="f_justafolder">
+                    <label for="f_justafolder">Just a folder</label>
+                    <div class="dir_wrapper">
+                      <input type="radio" name="hosted_files" id="f_withafile_js" value="with_a_file.js">
+                      <label for="f_withafile_js">with_a_file.js</label>
+                    </div>
+                    
+                    <input type="radio" name="hosted_files" id="f_main_js" value="main.js" checked>
+                    <label class="active" for="f_main_js">main.js</label>
+                    <input type="radio" name="hosted_files" id="f_globals_js" value="globals.js">
+                    <label for="f_globals_js">globals.js</label>
+                    <input type="radio" name="hosted_files" id="f_filler_js" value="filler.js">
+                    <label for="f_filler_js">filler.js</label>
+                    <input type="radio" name="hosted_files" id="f_horror_vacui_js" value="horror_vacui.js">
+                    <label for="f_horror_vacui_js">horror_vacui.js</label>
+                  </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+    <div class="sidebar-footer"></div>
+  </aside>
+</template>

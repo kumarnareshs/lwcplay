@@ -17,6 +17,7 @@
         "express-session": "^1.11.3",
         "firebase": "^7.15.4",
         "helmet": "^3.23.1",
+        "jquery": "^3.5.1",
         "jshint": "^2.11.1",
         "morgan": "^1.6.1",
         "navigo": "^7.1.2",

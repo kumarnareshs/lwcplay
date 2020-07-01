@@ -18,3 +18,13 @@
 .menu .component{
     flex-shrink: 0;
 }
+.component-explorer{
+    width: 200px;
+}
+.component-editor{
+    display: flex;
+    flex-grow: 1;
+}
+.component-output{
+    min-width: 400px;
+}
