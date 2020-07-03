@@ -18,6 +18,7 @@
         "firebase": "^7.15.4",
         "helmet": "^3.23.1",
         "jquery": "^3.5.1",
+        "jquery.fancytree": "^2.35.0",
         "jshint": "^2.11.1",
         "morgan": "^1.6.1",
         "navigo": "^7.1.2",

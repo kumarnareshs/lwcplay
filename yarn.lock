@@ -7862,6 +7862,11 @@ jest@^26:
     import-local "^3.0.2"
     jest-cli "^26.0.1"
 
+jquery.fancytree@^2.35.0:
+  version "2.35.0"
+  resolved "https://registry.yarnpkg.com/jquery.fancytree/-/jquery.fancytree-2.35.0.tgz#5151279eb6817d470112bf7435e128d7569d2ae5"
+  integrity sha512-eRNWU8z69UQWc3+M2IvMGPpqTZ5ZsWAR0/N/a0O7eRbjM8StC0RGUc+xg4BNL4W6hFlWeuVT7eP2T8rLW7l05A==
+
 jquery@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
