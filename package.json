@@ -5,6 +5,7 @@
     "author": "Naresh",
     "bugs": "https://github.com/Naresh/play/issues",
     "dependencies": {
+        "@lwc/synthetic-shadow": "^1.7.2",
         "body-parser": "^1.13.2",
         "codemirror": "5.54.0",
         "compression": "^1.7.4",

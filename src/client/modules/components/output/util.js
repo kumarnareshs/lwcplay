@@ -78,10 +78,12 @@ export function createIframe(container, { code } = {}) {
   iframe.title = "preview";
   iframe.setAttribute("style", iframeStyles);
   iframe.addEventListener("load", () => {
-    const { document: innerDoc } = iframe.contentWindow;
-    const script = innerDoc.createElement("script");
-    script.text = code;
-    innerDoc.body.appendChild(script);
+    const  innerDoc  = iframe.contentDocument;
+    if (innerDoc) {
+      const script = innerDoc.createElement("script");
+      script.text = code;
+      innerDoc.body.appendChild(script);
+    }
   });
   container.appendChild(iframe);
   iframe.contentWindow.document.open();
