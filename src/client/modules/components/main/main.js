@@ -32,4 +32,7 @@ export default class Main extends LightningElement{
         super();
         this.files = PLAYGROUND_FILES;
     }
+    handlemyevent(){
+      console.log('myevent');
+    }
 }

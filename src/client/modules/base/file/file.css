@@ -1,0 +1,34 @@
+base-icon{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    margin-top: 4px;
+}
+.filenode{
+    display: block;
+    padding-left: 30px;
+    color: var(--foreground);
+    cursor: pointer;
+}
+.filenode.selected {
+    background: var(--list-activeSelectionBackground);
+    color: white;
+}
+
+ 
+label{
+    width: 100%;
+    font-size: 13px;
+    padding-left:20px;
+    line-height: 22px;
+    padding-left: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.filenode:hover:not(.selected) {
+    background: var(--list-hoverBackground);
+  }
+
+
+ 
+  

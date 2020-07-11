@@ -1,23 +1,20 @@
 <template>
-    <template if:true={showTree}>
+    <template if:true={showTree} >
         <template for:each={prop} for:item="parent">
             <span key={parent.id}>
-               
+
                 <template if:true={parent.children}>
                     <div class="dir_wrapper">
                         <!-- folder -->
                         <base-folder prop={parent}></base-folder>
-                        
-                           
-                                <base-tree-node prop={parent.children}  ></base-tree-node>
-                            
-                      
+                        <base-tree-node prop={parent.children} ></base-tree-node>
                     </div>
                 </template>
-                <template if:false={parent.children}>
-                     
-                    <base-file prop={parent}></base-file>
-                </template> 
+                <template if:false={parent.children} >
+
+                    <base-file prop={parent} ></base-file>
+              
+                </template>
             </span>
         </template>
     </template>

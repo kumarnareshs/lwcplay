@@ -1,0 +1,16 @@
+base-icon{
+    width: 15px;
+    height: 15px;
+}
+label{
+    width: 100%;
+    font-size: 13px;
+  
+    line-height: 22px;
+    padding-left: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.dir_wrapper {
+    padding-left: 28px;
+  }

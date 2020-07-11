@@ -3,11 +3,8 @@
   <head>
     <!-- Standard meta -->
     <meta charset="UTF-8" />
-    <title>rcast</title>
-    <meta
-      name="description"
-      content="Listen and manage your podcast in a lightweight application"
-    />
+    <title>Force.dev</title>
+    <meta name="description" content="Playground for Lwc" />
 
     <!-- Add manifest for add to home screen -->
 
@@ -22,10 +19,13 @@
 
     <link rel="shortcut icon" href="./resources/favicon.ico" />
     <!-- MODULES_PRELOAD -->
-    <!-- <link rel="stylesheet" href="./resources/global.css" /> -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600|Lato:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,600|Lato:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
     <style>
-       :root {
+      :root {
         --primary-color: #06a9dd;
 
         --spacing-small: 10px;
@@ -47,7 +47,6 @@
         --success-color: #66bb6a;
       }
 
-       
       body,
       html {
         height: 100%;
@@ -74,30 +73,35 @@
         overflow: hidden;
 
         --menu-height: 40px;
-        --titleBar-activeBackground:#eaeaea;
-        --icon-foreground:  #424242;
+        --titleBar-activeBackground: #eaeaea;
+        --icon-foreground: #424242;
         --panel-border: rgb(97, 97, 97);
         --activityBar-background: #eaeaea;
-        --activityBar-border:rgb(0, 0, 0);
+        --activityBar-border: rgb(0, 0, 0);
         --activityBar-foreground: #666666;
-        --sideBar-background:#F7F3F3;
-        --sideBarSectionHeader-background:#80808033;
-        --foreground:#616161;
-        --list-hoverBackground:#e8e8e8;
+        --sideBar-background: #f7f3f3;
+        --sideBarSectionHeader-background: #80808033;
+        --foreground: #616161;
+        --list-hoverBackground: #e8e8e8;
         --list-activeSelectionBackground: #0074e8;
         --list-activeColor: #0074e8;
-        --list-activeSelectionForeground:#fff;
+        --list-activeSelectionForeground: #fff;
         --editorGroupHeader-tabsBackground: #f3f3f3;
-        --tab-activeBackground:#ffffff;
-        --tab-activeForeground:#333333;
+        --tab-activeBackground: #ffffff;
+        --tab-activeForeground: #333333;
+      }
+
+      button {
+        padding: 0;
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
       }
     </style>
-    
   </head>
 
   <body>
-    <div class="slds-grid"></div>
     <div id="main"></div>
-    
   </body>
 </html>

@@ -5,9 +5,10 @@ export default class Header extends LightningElement {
     property;
 
     rendered = false;
-    async renderedCallback() {
+    renderedCallback() {
         if (!this.rendered) {
             this.rendered = true;
         }
     }
+   
 }

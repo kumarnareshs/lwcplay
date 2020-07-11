@@ -1,6 +1,15 @@
 <template>
-    <span>
-        <input type="radio" name="hosted_files" value={prop.name} checked>
-        <label class="active" for={prop.name}>{prop.name}</label>
+    <span  onclick={handleMyclick} class={className}>
+       
+        <template if:true={isHtml}>
+            <base-icon name="html"></base-icon>
+        </template>
+        <template if:true={isCss}>
+            <base-icon name="css"></base-icon>
+        </template>
+        <template if:true={isJs}>
+            <base-icon name="js"></base-icon>
+        </template>
+        <label  for={prop.name}>{prop.name}</label>
     </span>
 </template>

@@ -6,4 +6,7 @@ export default class TreeNode extends LightningElement{
 
         return this.prop!=undefined ||this.prop!=null;
     }
+    handleFileClick(){
+        console.log('s');
+    }
 }

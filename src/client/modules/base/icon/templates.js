@@ -35,5 +35,10 @@ export { default as files } from './templates/files.html';
 export { default as fileArrowDown } from './templates/file-arrow-down.html';
 export { default as fileArrowRight } from './templates/file-arrow-right.html';
 export { default as codebracket } from './templates/codebracket.html';
+export { default as folderOpen } from './templates/folder-open.html';
+export { default as folderClose } from './templates/folder-close.html';
+export { default as js } from './templates/js.html';
+export { default as css } from './templates/css.html';
+export { default as html } from './templates/html.html';
 
 export { default as void } from './templates/void.html';
