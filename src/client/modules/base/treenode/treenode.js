@@ -1,10 +1,10 @@
 import {LightningElement,api} from 'lwc';
 export default class TreeNode extends LightningElement{
 
-    @api prop;
+    @api fileTree;
     get showTree(){
 
-        return this.prop!=undefined ||this.prop!=null;
+        return this.fileTree!=undefined ||this.fileTree!=null;
     }
     handleFileClick(){
         console.log('s');

@@ -1614,7 +1614,7 @@
   resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-1.7.1.tgz#9778063a9b733d36f0d44d742328440a0d43e9fd"
   integrity sha512-vfHTInh6YatkD7nO4TgmTO5F5zy+ugLajJoKOqfpoK4JbRXEBgbtb8CIWSbTRoixvABMRbGCwlfZA0wb2rxd+Q==
 
-"@lwc/eslint-plugin-lwc@^0.10", "@lwc/eslint-plugin-lwc@~0.10.0":
+"@lwc/eslint-plugin-lwc@^0.10", "@lwc/eslint-plugin-lwc@^0.10.0", "@lwc/eslint-plugin-lwc@~0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@lwc/eslint-plugin-lwc/-/eslint-plugin-lwc-0.10.0.tgz#e282910b01b3b403d8fec03d34c4c853e29c4676"
   integrity sha512-UsosUow0xWrzzcSK1fWDWHKBT81/pJz1/icfv7w8T+BCE9G4Kb4TwJexHLOIZvY7e/dv4Fjme4lTOWehuNE5Sg==
@@ -5050,10 +5050,10 @@ eslint@^6.3:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-eslint@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.3.0.tgz#f9f1fc3dc1227985d0db88769f2bbac7b4b875d7"
-  integrity sha512-dJMVXwfU5PT1cj2Nv2VPPrKahKTGdX+5Dh0Q3YuKt+Y2UhdL2YbzsVaBMyG9HC0tBismlv/r1+eZqs6SMIV38Q==
+eslint@^7.4.0:
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.4.0.tgz#4e35a2697e6c1972f9d6ef2b690ad319f80f206f"
+  integrity sha512-gU+lxhlPHu45H3JkEGgYhWhkR9wLHHEXC9FbWFnTlEkbKyZKWgWRLgf61E8zWmBuI6g5xKBph9ltg3NtZMVF8g==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     ajv "^6.10.0"

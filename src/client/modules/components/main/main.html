@@ -1,10 +1,10 @@
 <template>
     <main class="main">
-        <components-header ></components-header>
+        <components-header onsavefiles={handleSaveFiles}></components-header>
         <div class="content">
             <components-menu class="component menu"></components-menu>
-            <components-explorer class="component-explorer"  files={files}></components-explorer>
-            <components-editor class="component-editor" ></components-editor>
+            <components-explorer class="component-explorer" onfileclick={handleFileClick} file-tree={fileTree}></components-explorer>
+            <components-editor class="component-editor" file-tree={fileTree}></components-editor>
             <components-output class="component-output"></components-output>
           
         </div>

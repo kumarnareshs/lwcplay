@@ -27,16 +27,15 @@
             <div class="tree-item-content">
               <div style="padding: 10px 0px;" class="fancytree">
                 <div class="file_tree">
-                  <template if:true={prop}>
-                  <base-tree-node prop={prop} onfileclick={handleFileClick}></base-tree-node>
-                </template>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-    </div>
-    <div class="sidebar-footer"></div>
-  </aside>
+                  <template if:true={fileTree}>
+                    <base-tree-node file-tree={fileTree}></base-tree-node>
+                  </template></div>
+</div>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div class="sidebar-footer"></div>
+</aside>
 </template>

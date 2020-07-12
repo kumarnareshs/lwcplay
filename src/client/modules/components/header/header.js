@@ -10,5 +10,7 @@ export default class Header extends LightningElement {
             this.rendered = true;
         }
     }
-   
+    saveFiles() {
+        this.dispatchEvent(new CustomEvent('savefiles'));
+    }
 }
