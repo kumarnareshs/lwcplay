@@ -1,35 +1,36 @@
 <template>
   <aside class="explorer-container">
-    <div class="sidebar-main">
-      <section class="sidebar-pane">
-        <div class="sidebar-pane-title"></div>
-        <div class="sidebar-pane-content">
-          <section class="sidebar-section">
-            <header class="tree-item-header">
-              <button class="arrow-icon">
-                <base-icon name="fileArrowRight"></base-icon>
-              </button>
-              <h4 class="tree-item-title">Info</h4>
-            </header>
-            <div class="tree-item-content">
-              <div style="padding: 10px 0px;">
-                <div style="padding: 0px 10px; margin: 3px 0px 5px;"></div>
-              </div>
-            </div>
-          </section>
-          <section class="sidebar-section">
-            <header class="tree-item-header">
-              <button class="arrow-icon">
-                <base-icon name="fileArrowRight"></base-icon>
-              </button>
-              <h4 class="tree-item-title">Files</h4>
-            </header>
-            <div class="tree-item-content">
-              <div style="padding: 10px 0px;" class="fancytree">
-                <div class="file_tree">
-                  <template if:true={fileTree}>
-                    <base-tree-node file-tree={fileTree}></base-tree-node>
-                  </template></div>
+     <div class="sidebar-main">
+        <section class="sidebar-pane">
+           <div class="sidebar-pane-title"></div>
+           <div class="sidebar-pane-content">
+              <section class="sidebar-section">
+                 <header class="tree-item-header">
+                    <button class="arrow-icon">
+                       <base-icon name="fileArrowRight"></base-icon>
+                    </button>
+                    <h4 class="tree-item-title">Info</h4>
+                 </header>
+                 <div class="tree-item-content">
+                    <div style="padding: 10px 0px;">
+                       <div style="padding: 0px 10px; margin: 3px 0px 5px;"></div>
+                    </div>
+                 </div>
+              </section>
+              <section class="sidebar-section">
+                 <header class="tree-item-header">
+                    <button class="arrow-icon">
+                       <base-icon name="fileArrowRight"></base-icon>
+                    </button>
+                    <h4 class="tree-item-title">Files</h4>
+                 </header>
+                 <div class="tree-item-content">
+                    <div style="padding: 10px 0px;" class="fancytree">
+                       <div class="file_tree">
+                          <template if:true={fileTree}>
+                             <base-tree-node file-tree={fileTree}></base-tree-node>
+                          </template>
+</div>
 </div>
 </div>
 </section>

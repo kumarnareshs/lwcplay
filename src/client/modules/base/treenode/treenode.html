@@ -1,19 +1,19 @@
 <template>
-    <template if:true={showTree} >
+    <template if:true={showTree}>
         <template for:each={fileTree} for:item="parent">
             <span key={parent.id}>
 
                 <template if:true={parent.children}>
-                    <div class="dir_wrapper">
+                    <div class="dir_wrapper" data-id={parent.id}>
                         <!-- folder -->
                         <base-folder file-tree={parent}></base-folder>
-                        <base-tree-node file-tree={parent.children} ></base-tree-node>
+                        <base-tree-node file-tree={parent.children}></base-tree-node>
                     </div>
                 </template>
-                <template if:false={parent.children} >
+                <template if:false={parent.children}>
 
-                    <base-file file-tree={parent} ></base-file>
-              
+                    <base-file file-tree={parent}></base-file>
+
                 </template>
             </span>
         </template>

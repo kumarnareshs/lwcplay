@@ -1,6 +1,6 @@
 import { LightningElement, api } from "lwc";
 import { PromiseWorker, createIframe, removeIframe } from "./util";
-
+import { isObject } from '../../helper/util';
 const PLAYGROUND_FILES = [
   {
     id: "repl_js_output_example/helloWorld",
@@ -27,18 +27,62 @@ const PLAYGROUND_FILES = [
     content: "",
   },
 ];
+
+let compileFiles = [];
 export default class Output extends LightningElement {
   @api property;
+
   frame;
   _internalFileState;
   compilerWorker;
   compilerReady = false;
+  _fileTree;
+  get fileTree() {
+    return this._fileTree;
+  }
+  @api set fileTree(val) {
+    this._fileTree = val;
+    this.setBaseJSFile();
+    this.transformFileTree(JSON.parse(JSON.stringify(val)), '');
+    this.files = compileFiles;
+    this.compileAndRun();
+  }
+
+  setBaseJSFile(){
+     compileFiles = [
+      {
+        id: "repl_js_output_example/helloWorld",
+        root: true,
+        hidden: true,
+        name: "repl_js_output_example/helloWorld.js",
+        content:
+          '\n        import { createElement } from "lwc";\n        import Ctor from "lwc/parent";\n        const element = createElement(\'repl-output\', { is: Ctor });\n        document.body.appendChild(element);\n    ',
+      }
+    ];
+  }
+  transformFileTree(fileTree, base) {
+    if (fileTree != null && Array.isArray(fileTree) && fileTree.length > 0) {
+      for (let i = 0; i <= fileTree.length; i++) {
+        let content = fileTree[i];
+        if (content != null && content.hasOwnProperty('children')) {
+          this.transformFileTree(content.children, base + content.name + '/');
+        } else if (content != null) {
+          
+          var file = {
+            id: content.name.split('.')[1]==='js'?base.substring(0,base.length-1):'./' +content.name,
+            name: base + content.name,
+            content: content.content
+          }
+          compileFiles.push(file);
+        }
+      }
+    }
+  }
   connectedCallback() {
     this.loadCompiler();
   }
   constructor() {
     super();
-    this.files = PLAYGROUND_FILES;
   }
 
   WORKER_CALLBACK_QUEUE = [];
@@ -112,9 +156,10 @@ export default class Output extends LightningElement {
         console.log("Message received from worker" + e.data);
       };
       this.evaluate(code);
-      console.log(code);
+       
     } catch (e) {
-      console.log(e);
+      var errorCode = 'document.body.innerHTML ="'+ e+'"';
+      this.evaluate(errorCode);
     }
   }
 
@@ -176,6 +221,6 @@ export default class Output extends LightningElement {
     createIframe(frame, {
       code,
     });
-    
+
   }
 }

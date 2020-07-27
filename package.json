@@ -21,6 +21,7 @@
         "navigo": "^7.1.2"
     },
     "devDependencies": {
+        "@lwc/compiler": "^1.7.7",
         "@lwc/eslint-plugin-lwc": "^0.10.0",
         "babel-eslint": "^10.1.0",
         "eslint": "^7.4.0",

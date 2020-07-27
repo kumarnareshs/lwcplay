@@ -1,12 +1,14 @@
-import {LightningElement,api} from 'lwc';
-export default class TreeNode extends LightningElement{
+import { LightningElement, api } from 'lwc';
+export default class TreeNode extends LightningElement {
 
     @api fileTree;
-    get showTree(){
+    get showTree() {
 
-        return this.fileTree!=undefined ||this.fileTree!=null;
+        return this.fileTree != undefined || this.fileTree != null;
     }
-    handleFileClick(){
+ 
+    handleFileClick() {
         console.log('s');
     }
+
 }

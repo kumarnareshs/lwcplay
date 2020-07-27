@@ -9,6 +9,7 @@ export default class Editor extends LightningElement {
     @api
     fileTree;
 
+    filename;
 
     isEditorCreated = false;
     editor;
@@ -74,6 +75,7 @@ export default class Editor extends LightningElement {
             fileName: file.name,
             id: file.id
         };
+        this.filename = file.name;
         this.sendMessage(JSON.stringify(send));
     }
 

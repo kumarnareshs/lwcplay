@@ -3,6 +3,8 @@
   margin-left: -28px;
 }
  
- 
+.dir_wrapper:not([data-id='1']) {
+  margin-left: 28px;
+}
 
  

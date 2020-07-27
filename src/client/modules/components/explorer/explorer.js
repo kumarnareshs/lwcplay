@@ -5,7 +5,4 @@ import { fireEvent } from '../../helper/pubsub/pubsub';
 export default class Explorer extends LightningElement {
     @api fileTree;
 
-
-
-
 }
