@@ -69,6 +69,11 @@ export default class App extends LightningElement {
         const ViewPodcasts = await import("view/home");
        
         this.setView(ViewPodcasts.default, { pass: "value" });
+      }, 
+      "/authcallback": async () => {
+        const ViewPodcasts = await import("view/auth");
+       
+        this.setView(ViewPodcasts.default, { pass: "value" });
       }
     });
     const navigateToDefault = () => {

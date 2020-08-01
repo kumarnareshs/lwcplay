@@ -3,12 +3,23 @@ import { connectStore, store } from 'my/store';
 export default class  BaseElement extends LightningElement{
    @api property;
    application;
+   isGuest=true;
+   username;
+   profilePic;
     @wire(connectStore, { store })
     storeChange({ application }) {
-        this.application = application;
+        console.log('store change');
+        if(application!=null){
+            console.log('this.application.user.type'+application.user.type);
+            if(application.user!=null&&application.user.type==='guest'){
+                this.isGuest = true;
+            }else {
+                this.isGuest = false;
+                this.username = application.user.user.user.username;
+                this.profilePic = application.user.user.user.profilePicture;
+            }
+        }
     }
 
-    constructor(){
-        super();
-    }
+
 }

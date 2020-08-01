@@ -1,9 +1,11 @@
 import { LightningElement, api } from 'lwc';
 import { toQuery } from '../../helper/slds/util';
 import * as CONSTANTS from '../../helper/constant/constant';
-import PopupWindow from './PopupWindow'
-export default class Login extends LightningElement {
-    @api property;
+import PopupWindow from './PopupWindow';
+import BaseElement from 'base/baseelement';
+import {  userLoggedIn,store } from 'my/store';
+export default class Login extends BaseElement {
+     
     code;
     props = {
         client_id: '6e2a9fedf66ea4fc3a5e',
@@ -41,16 +43,17 @@ export default class Login extends LightningElement {
 
     onFailure = (error) => {
         this.popup.close();
-        this.props.onFailure(error);
+       // this.props.onFailure(error);
     }
     handleGetToken(code) {
      
-
         let url = CONSTANTS.BASE_URL + '/auth/login?code=' + code;
         fetch(url,{credentials: 'include'})
-            .then(response => { console.log(response); response.json() })
+            .then(response => { console.log(response); return response.json(); })
             .then(data => {
                 console.log('Success:', data);
+                store.dispatch(userLoggedIn(data.user));
+           
             })
             .catch((error) => {
                 console.error('Error:', error);

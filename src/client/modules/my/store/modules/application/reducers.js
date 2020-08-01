@@ -17,7 +17,7 @@ export default function application(
         case USER_LOGEDIN:
             return {
                 ...state,
-                user: { type: 'authenticated-user', userid: action.userid }
+                user: { type: 'authenticated-user', user: action.user }
             };
         case USER_LOGEDOUT:
             return {

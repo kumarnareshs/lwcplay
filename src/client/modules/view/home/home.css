@@ -30,14 +30,15 @@
   }
   /*NAV*/
   .lp__nav {
-    width: max-content;
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
   }
   .lp__nav__logo {
     width: 20px;
     margin: -1px 0 0;
     padding: 0 4px 0 0;
+    
   }
   .lp__nav__text {
     font-weight: 600;

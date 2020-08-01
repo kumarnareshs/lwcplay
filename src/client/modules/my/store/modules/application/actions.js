@@ -7,10 +7,10 @@ export function connectivityStatusChanged() {
     };
 }
 
-export function userLoggedIn(userid) {
+export function userLoggedIn(userObj) {
     return {
         type: USER_LOGEDIN,
-        userid: userid,
+        user: userObj,
     };
 }
 
