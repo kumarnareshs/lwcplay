@@ -4,15 +4,13 @@ import * as CONSTANTS from '../../helper/constant/constant';
 import PopupWindow from './PopupWindow';
 import BaseElement from 'base/baseelement';
 import {  userLoggedIn,store } from 'my/store';
+import config from '../config.js'
+
+
 export default class Login extends BaseElement {
      
     code;
-    props = {
-        client_id: '6e2a9fedf66ea4fc3a5e',
-        client_secret: '5fded0367ece4217cf1576ab6383af93c0ea3c82',
-        redirect_uri: 'http://localhost:3000/authcallback',
-        scope: 'user'
-    }
+    props = config.github;
     popup;
     handleLogin(evt) {
 

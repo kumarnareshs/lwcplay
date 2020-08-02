@@ -1,2 +1,4 @@
-const BASE_URL="http://localhost:3002/api/v1";
+import config from '../config.js'
+const BASE_URL=config.baseurl;
+
 export {BASE_URL}
