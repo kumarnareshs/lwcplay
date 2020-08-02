@@ -4,7 +4,7 @@ import * as CONSTANTS from '../../helper/constant/constant';
 import PopupWindow from './PopupWindow';
 import BaseElement from 'base/baseelement';
 import {  userLoggedIn,store } from 'my/store';
-import config from '../config.js'
+import config from 'helper/config'
 
 
 export default class Login extends BaseElement {
