@@ -13,8 +13,8 @@
               <components-login property={}></components-login>
             </template>
             <template if:false={isGuest}>
-              <button>{username}</button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button>Log out</button>
+              <button ><a href="/profile">{username}</a></button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button onclick={logoutUser}>Log out</button>
             </template></div>
         </nav>
         <!--- END: NAV -->
