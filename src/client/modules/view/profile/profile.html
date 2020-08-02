@@ -9,8 +9,12 @@
               
           </div>
           <div class="rightsidebar">
-            <div >New Project</div>
-            <button onclick={getTemplates}></button>
+            <div >Create New Project from template</div>
+            <template for:each={templateList} for:item="item">
+              <li key={item.name}>
+                <button onclick={createProjectFromTemplate} data-path={item.path}>{item.name}</button>
+              </li>
+            </template>
           </div>
         </div>
       </main>

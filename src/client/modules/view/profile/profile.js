@@ -1,28 +1,33 @@
 import BaseElement from "base/baseelement";
-import { store, userLoggedOut } from 'my/store';
-import * as CONSTANTS from 'helper/constant';
-import{logoutUser} from 'base/functions'
-
+import { getTemplates } from '../../my/rest/rest';
+import { track } from 'lwc'
 export default class Profile extends BaseElement {
 
-    logout(){
-        logoutUser();
-        
+
+    @track templateList = [];
+    connectedCallback() {
+        this.getTemplatesJson();
+    }
+    getTemplatesJson() {
+        getTemplates().then((data) => {
+            if (data.status === 'success') {
+                data.template.Contents.forEach((item) => {
+                    let key = item.Key
+                    if (key != 'template/') {
+                        let name = key.substr(key.indexOf('/') + 1).split('.')[0];
+                        this.templateList.push({ name: name, path: key });
+                    }
+
+                })
+            }
+            console.log(this.templateList);
+        }).catch(error => {
+
+        })
     }
 
-    connectedCallback(){
-        this.getTemplates();
+    createProjectFromTemplate(eve){
+        let data = eve.currentTarget.getAttribute('data-path');
     }
-    getTemplates(){
-        let url = CONSTANTS.BASE_URL + '/s3/template';
-        fetch(url,{credentials: 'include'})
-            .then(response => { console.log(response); response.json() })
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        }    
-    
+
 }
