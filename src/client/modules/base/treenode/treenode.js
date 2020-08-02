@@ -1,5 +1,5 @@
 import { LightningElement, api } from 'lwc';
-export default class TreeNode extends LightningElement {
+export default class Treenode extends LightningElement {
 
     @api fileTree;
     get showTree() {
