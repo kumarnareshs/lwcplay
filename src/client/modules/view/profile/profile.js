@@ -1,5 +1,5 @@
 import BaseElement from "base/baseelement";
-import { getTemplates } from '../../my/rest/rest';
+import { getTemplates,createProject } from '../../my/rest/rest';
 import { track } from 'lwc'
 export default class Profile extends BaseElement {
 
@@ -28,6 +28,15 @@ export default class Profile extends BaseElement {
 
     createProjectFromTemplate(eve){
         let data = eve.currentTarget.getAttribute('data-path');
+        createProject({type:'template',path:data}).then((data)=>{
+            if(data.status === 'success'){
+                let folder = data.folderAndFile.split('/')[0];
+                let file = data.folderAndFile.split('/')[1].split('.')[0];
+                window.location.href = '/s?username='+folder+'&workspace='+file;
+            }
+        }).catch((error)=>{
+
+        })
     }
 
 }

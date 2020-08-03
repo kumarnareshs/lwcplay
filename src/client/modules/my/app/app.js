@@ -30,7 +30,7 @@ export default class App extends LightningElement {
   renderUserpath() {
     console.log('App is creating')
     this.router.on({
-      "/main": async () => {
+      "/s": async (params, query) => {
         const ViewPodcasts = await import("components/main");
         this.setView(ViewPodcasts.default, { pass: "value" });
       },
