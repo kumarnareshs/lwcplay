@@ -20,6 +20,7 @@ let configObj= {
         s3:"https://s3.us-east-2.amazonaws.com/force.dev"
     }
 }
-console.log('process.env.mode'+process.env.mode);
-let config = process.env.mode ==='production'?configObj.prod:configObj.dev;
-export default config;
+
+
+export default config.prod;
+//export default config.dev;
