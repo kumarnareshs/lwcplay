@@ -27,38 +27,38 @@ export default class Editor extends LightningElement {
         unregisterAllListeners(this);
     }
     renderedCallback() {
-            console.log("rendred callback called" + this.theIframe);
-            if (this.theIframe === undefined) {
-                this.theIframe = this.template.querySelector("iframe");
-                this.theIframe.onload = () => {
-                    console.log("Onload called" + this.isReloaded);
-                    if (!this.isReloaded) {
-                        this.isReloaded = true;
-                        this.theIframe.src = this.theIframe.src;
+        console.log("rendred callback called" + this.theIframe);
+        if (this.theIframe === undefined) {
+            this.theIframe = this.template.querySelector("iframe");
+            this.theIframe.onload = () => {
+                console.log("Onload called" + this.isReloaded);
+                if (!this.isReloaded) {
+                    this.isReloaded = true;
+                    this.theIframe.src = this.theIframe.src;
+                }
+                let file = returnFound(this.fileTree, { selected: true });
+                this.handleFileSelected({ detail: file });
+            };
+
+            // Listen to message from child window
+            this.bindEvent(window, "message", function (e) {
+                let data = e.data;
+                try {
+                    let fileObj = JSON.parse(e.data);
+                    if (fileObj && fileObj.lwclink) {
+
+                        fireEvent(null, 'fileChanged', {
+                            detail: {
+                                content: fileObj.content,
+                                fileId: fileObj.fileId
+                            }
+                        })
                     }
-                    let file = returnFound(this.fileTree, { selected: true });
-                    this.handleFileSelected({ detail: file });
-                };
-
-                // Listen to message from child window
-                this.bindEvent(window, "message", function(e) {
-                    let data = e.data;
-                    try {
-                        let fileObj = JSON.parse(e.data);
-                        if (fileObj && fileObj.lwclink) {
-
-                            fireEvent(null, 'fileChanged', {
-                                detail: {
-                                    content: fileObj.content,
-                                    fileId: fileObj.fileId
-                                }
-                            })
-                        }
-                    } catch (e) {}
-                });
-            }
+                } catch (e) { }
+            });
         }
-        // addEventListener support for IE8
+    }
+    // addEventListener support for IE8
     bindEvent(element, eventName, eventHandler) {
         if (element.addEventListener) {
             element.addEventListener(eventName, eventHandler, false);
@@ -69,14 +69,16 @@ export default class Editor extends LightningElement {
 
     handleFileSelected(eve) {
         let file = eve.detail;
-        let send = {
-            lwclink: true,
-            fileContent: file.content,
-            fileName: file.name,
-            id: file.id
-        };
-        this.filename = file.name;
-        this.sendMessage(JSON.stringify(send));
+        if (file) {
+            let send = {
+                lwclink: true,
+                fileContent: file.content,
+                fileName: file.name,
+                id: file.id
+            };
+            this.filename = file.name;
+            this.sendMessage(JSON.stringify(send));
+        }
     }
 
     sendMessage(msg) {

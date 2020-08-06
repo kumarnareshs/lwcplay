@@ -2,7 +2,7 @@
 import { LightningElement, wire } from "lwc";
 import Navigo from "navigo";
 import { connectStore, store } from 'my/store';
-
+import {getQueryVariable} from '../../helper/util';
 export default class App extends LightningElement {
   router = new Navigo(location.origin, false);
   view;
@@ -32,7 +32,9 @@ export default class App extends LightningElement {
     this.router.on({
       "/s": async (params, query) => {
         const ViewPodcasts = await import("components/main");
-        this.setView(ViewPodcasts.default, { pass: "value" });
+        let username =getQueryVariable(query,"username");
+        let workspace =getQueryVariable(query,"workspace");
+        this.setView(ViewPodcasts.default, { username:username,workspace:workspace });
       },
       "/profile": async () => {
         const ViewPodcasts = await import("view/profile");

@@ -1,4 +1,4 @@
-import { CONNECTIVITY_STATUS_CHANGED,USER_LOGEDIN,USER_LOGEDOUT } from './constants';
+import { CONNECTIVITY_STATUS_CHANGED,USER_LOGEDIN,USER_LOGEDOUT,SET_SIGNED_URL,SET_FILE } from './constants';
 const initialState = {
     isOnline: navigator.onLine,
     user: { type: 'guest' }
@@ -23,6 +23,16 @@ export default function application(
             return {
                 ...state,
                 user: { type: 'guest' }
+            };
+            case SET_SIGNED_URL:
+            return {
+                ...state,
+                signedurl: action.urlObj
+            };
+            case SET_FILE:
+            return {
+                ...state,
+                file: action.fileObj
             };
         default:
             return state;

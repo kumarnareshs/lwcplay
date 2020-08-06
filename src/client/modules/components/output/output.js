@@ -1,32 +1,32 @@
 import { LightningElement, api } from "lwc";
 import { PromiseWorker, createIframe, removeIframe } from "./util";
 import { isObject } from '../../helper/util';
-const PLAYGROUND_FILES = [
-  {
-    id: "repl_js_output_example/helloWorld",
-    root: true,
-    hidden: true,
-    name: "repl_js_output_example/helloWorld.js",
-    content:
-      '\n        import { createElement } from "lwc";\n        import Ctor from "example/helloWorld";\n        const element = createElement(\'repl-output\', { is: Ctor });\n        document.body.appendChild(element);\n    ',
-  },
-  {
-    id: "example/helloWorld",
-    name: "example/helloWorld/helloWorld.js",
-    content:
-      "import { LightningElement, api } from 'lwc';\n\nexport default class Example extends LightningElement {\n    @api name = 'World!';\n}\n",
-  },
-  {
-    id: "./helloWorld.html",
-    name: "example/helloWorld/helloWorld.html",
-    content: "<template>\n    Hello, {name}\n</template>",
-  },
-  {
-    id: "./helloWorld.css",
-    name: "example/helloWorld/helloWorld.css",
-    content: "",
-  },
-];
+// const PLAYGROUND_FILES = [
+//   {
+//     id: "repl_js_output_example/helloWorld",
+//     root: true,
+//     hidden: true,
+//     name: "repl_js_output_example/helloWorld.js",
+//     content:
+//       '\n        import { createElement } from "lwc";\n        import Ctor from "example/helloWorld";\n        const element = createElement(\'repl-output\', { is: Ctor });\n        document.body.appendChild(element);\n    ',
+//   },
+//   {
+//     id: "example/helloWorld",
+//     name: "example/helloWorld/helloWorld.js",
+//     content:
+//       "import { LightningElement, api } from 'lwc';\n\nexport default class Example extends LightningElement {\n    @api name = 'World!';\n}\n",
+//   },
+//   {
+//     id: "./helloWorld.html",
+//     name: "example/helloWorld/helloWorld.html",
+//     content: "<template>\n    Hello, {name}\n</template>",
+//   },
+//   {
+//     id: "./helloWorld.css",
+//     name: "example/helloWorld/helloWorld.css",
+//     content: "",
+//   },
+// ];
 
 let compileFiles = [];
 export default class Output extends LightningElement {
@@ -42,14 +42,16 @@ export default class Output extends LightningElement {
   }
   @api set fileTree(val) {
     this._fileTree = val;
-    this.setBaseJSFile();
-    this.transformFileTree(JSON.parse(JSON.stringify(val)), '');
-    this.files = compileFiles;
-    this.compileAndRun();
+    if (val) {
+      this.setBaseJSFile();
+      this.transformFileTree(JSON.parse(JSON.stringify(val)), '');
+      this.files = compileFiles;
+      this.compileAndRun();
+    }
   }
 
-  setBaseJSFile(){
-     compileFiles = [
+  setBaseJSFile() {
+    compileFiles = [
       {
         id: "repl_js_output_example/helloWorld",
         root: true,
@@ -67,9 +69,9 @@ export default class Output extends LightningElement {
         if (content != null && content.hasOwnProperty('children')) {
           this.transformFileTree(content.children, base + content.name + '/');
         } else if (content != null) {
-          
+
           var file = {
-            id: content.name.split('.')[1]==='js'?base.substring(0,base.length-1):'./' +content.name,
+            id: content.name.split('.')[1] === 'js' ? base.substring(0, base.length - 1) : './' + content.name,
             name: base + content.name,
             content: content.content
           }
@@ -156,9 +158,9 @@ export default class Output extends LightningElement {
         console.log("Message received from worker" + e.data);
       };
       this.evaluate(code);
-       
+
     } catch (e) {
-      var errorCode = 'document.body.innerHTML ="'+ e+'"';
+      var errorCode = 'document.body.innerHTML ="' + e + '"';
       this.evaluate(errorCode);
     }
   }

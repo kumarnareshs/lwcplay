@@ -22,5 +22,5 @@ let configObj= {
 }
 
 
-export default configObj.prod;
-//export default configObj.dev;
+//export default configObj.prod;
+export default configObj.dev;

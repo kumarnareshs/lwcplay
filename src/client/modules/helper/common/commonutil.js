@@ -1,5 +1,3 @@
-
-
 function objectSpread(target) {
     let thisInstance = this;
     for (var i = 1; i < arguments.length; i++) {
@@ -20,7 +18,7 @@ function objectSpread(target) {
 }
 function normalizeFiles(files) {
     return files.map((file) =>
-         objectSpread({}, file, {
+        objectSpread({}, file, {
             ext: file.name.split(".").pop(),
         })
     );
@@ -28,15 +26,27 @@ function normalizeFiles(files) {
 
 function defineProperty(obj, key, value) {
     if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true,
-      });
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+        });
     } else {
-      obj[key] = value;
+        obj[key] = value;
     }
     return obj;
-  }
-export { normalizeFiles, objectSpread }
+}
+function getQueryVariable(params, variable) {
+    var query = params;
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+
+}
+
+export { normalizeFiles, objectSpread, getQueryVariable }

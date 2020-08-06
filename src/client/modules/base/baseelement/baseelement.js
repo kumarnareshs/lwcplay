@@ -7,6 +7,8 @@ export default class  BaseElement extends LightningElement{
    username;
    profilePic;
    profileName;
+   signedUrl;
+   file;
     @wire(connectStore, { store })
     storeChange({ application }) {
         console.log('store change');
@@ -20,6 +22,8 @@ export default class  BaseElement extends LightningElement{
                 this.username = application.user.user.user.username;
                 this.profilePic = application.user.user.user.profilePicture;
                 this.profileName = application.user.user.user.name;
+                this.signedUrl = application.signedUrl;
+                this.file = application.file;
             }
         }
     }

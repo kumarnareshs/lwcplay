@@ -1,4 +1,4 @@
-import { CONNECTIVITY_STATUS_CHANGED,USER_LOGEDIN,USER_LOGEDOUT } from './constants';
+import { CONNECTIVITY_STATUS_CHANGED,USER_LOGEDIN,USER_LOGEDOUT,SET_SIGNED_URL,SET_FILE } from './constants';
 
 export function connectivityStatusChanged() {
     return {
@@ -17,5 +17,19 @@ export function userLoggedIn(userObj) {
 export function userLoggedOut() {
     return {
         type: USER_LOGEDOUT
+    };
+}
+
+export function setSignedUrl(urlObj) {
+    return {
+        type: SET_SIGNED_URL,
+        urlObj:urlObj
+    };
+}
+
+export function setFile(fileObj) {
+    return {
+        type: SET_FILE,
+        fileObj:fileObj
     };
 }
