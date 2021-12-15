@@ -62,7 +62,12 @@ export default class App extends LightningElement {
       "/authcallback": async () => {
         const ViewPodcasts = await import("view/auth");
         this.setView(ViewPodcasts.default, { pass: "value" });
-      }
+      }, "/s": async (params, query) => {
+        const ViewPodcasts = await import("components/main");
+        let username =getQueryVariable(query,"username");
+        let workspace =getQueryVariable(query,"workspace");
+        this.setView(ViewPodcasts.default, { username:'username',workspace:'workspace' });
+      },
     });
 
     const pagenotfound = () => {

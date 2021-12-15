@@ -17,12 +17,10 @@ middlewares = [...middlewares, logger];
 // if (process.env.NODE_ENV !== 'production') {
 //     middlewares = [...middlewares, logger];
 // }
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ;
 export const store = createStore(
     combineReducers({
        application
     }),
-    loadState(),composeEnhancers(
-    applyMiddleware(...middlewares),
-    )
+    applyMiddleware(...middlewares)
 );

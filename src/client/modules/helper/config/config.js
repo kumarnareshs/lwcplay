@@ -3,7 +3,7 @@ let configObj= {
         baseurl:"http://localhost:3002/api/v1",
         github:{
             client_id: '030263d37b91cadbb7f8',
-            client_secret: '4ed816d8275c960fb3f8e5286e87d9cbf7e5a603',
+            client_secret: '16fd07d2ce2b8aa039de6cad71a842a7525e6347',
             redirect_uri: 'http://localhost:3000/authcallback',
             scope: 'user'
         },
